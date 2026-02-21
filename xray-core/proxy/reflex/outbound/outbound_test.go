@@ -26,7 +26,7 @@ func TestNewAndProcess(t *testing.T) {
 
 	ctx := session.ContextWithOutbounds(context.Background(), []*session.Outbound{{}})
 	err = h.Process(ctx, &transport.Link{}, nil)
-	if err == nil || !strings.Contains(err.Error(), "step1 skeleton") {
+	if err == nil || !strings.Contains(err.Error(), "dialer is nil") {
 		t.Fatalf("unexpected process error: %v", err)
 	}
 }
